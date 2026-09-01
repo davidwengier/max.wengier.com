@@ -1,1 +1,201 @@
-Max!
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171229">
+  <title>Games by Max</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      background: #171229;
+      color: #fffaf3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(255, 91, 150, 0.3), transparent 28rem),
+        radial-gradient(circle at 90% 85%, rgba(80, 208, 255, 0.28), transparent 30rem),
+        #171229;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image: radial-gradient(#fff 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+
+    main {
+      width: min(100% - 2rem, 72rem);
+      padding: 4rem 0;
+      position: relative;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      text-shadow: 0 0.08em 0 #8d4acf, 0 0.16em 0.5em rgba(0, 0, 0, 0.35);
+    }
+
+    p {
+      margin: 1.4rem 0 0;
+      color: #d8ccea;
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+    }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .game {
+      --accent: #ff5b96;
+      min-height: 12rem;
+      padding: 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      border: 2px solid rgba(255, 255, 255, 0.16);
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 75%, #181126), #211735);
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.25);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .game::before {
+      content: "";
+      width: 11rem;
+      height: 11rem;
+      position: absolute;
+      z-index: -1;
+      top: -4rem;
+      right: -2rem;
+      border: 2.5rem solid rgba(255, 255, 255, 0.12);
+      border-radius: 35%;
+      transform: rotate(25deg);
+    }
+
+    .game:hover,
+    .game:focus-visible {
+      transform: translateY(-0.4rem) rotate(-0.5deg);
+      border-color: rgba(255, 255, 255, 0.65);
+      box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.35);
+      outline: none;
+    }
+
+    .game:nth-child(even):hover,
+    .game:nth-child(even):focus-visible {
+      transform: translateY(-0.4rem) rotate(0.5deg);
+    }
+
+    .game-title {
+      max-width: 75%;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .arrow {
+      width: 3.25rem;
+      height: 3.25rem;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      color: #171229;
+      font-size: 1.75rem;
+      transition: transform 180ms ease;
+    }
+
+    .game:hover .arrow,
+    .game:focus-visible .arrow {
+      transform: translateX(0.25rem);
+    }
+
+    .gummies { --accent: #ff4f9a; }
+    .motors { --accent: #ff8738; }
+    .joker { --accent: #8c55e8; }
+    .fighters { --accent: #1ba6c9; }
+
+    @media (max-width: 42rem) {
+      main {
+        padding: 2.5rem 0;
+      }
+
+      .games {
+        grid-template-columns: 1fr;
+      }
+
+      .game {
+        min-height: 9rem;
+        padding: 1.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .game,
+      .arrow {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Games by Max</h1>
+      <p>Pick a game and start playing.</p>
+    </header>
+
+    <nav class="games" aria-label="Max's games">
+      <a class="game gummies" href="http://wengier.com/InfiniteGummies/">
+        <span class="game-title">Infinite Gummies</span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="game motors" href="http://wengier.com/BoxBoxMotors/">
+        <span class="game-title">Box Box Motors</span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="game joker" href="http://wengier.com/BoxBoxJoker/">
+        <span class="game-title">Box Box Joker</span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="game fighters" href="http://wengier.com/BoxBoxFighters/">
+        <span class="game-title">Box Box Fighters</span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
